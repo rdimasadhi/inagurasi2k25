@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Panitia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Layer Galaxy -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+  <div class="tiny-stars"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+
+  <!-- Card utama -->
+  <div class="card">
+    <img src="logo.jpg" alt="Logo Universitas Dinamika">
+    <h1>Portal Panitia</h1>
+    <p class="subtitle">Masukkan NIM untuk cek status penerimaan</p>
+    <div class="input-group">
+      <input type="text" id="nim" placeholder="Masukkan NIM">
+      <button onclick="cekNIM()">Cek</button>
+    </div>
+    <div id="error" class="error"></div>
+  </div>
+
+  <script src="routes.js"></script>
+  <script>
+    function cekNIM() {
+      const nim = document.getElementById("nim").value.trim();
+      const errorBox = document.getElementById("error");
+
+      if (routes[nim]) {
+        window.location.href = routes[nim];
+      } else {
+        errorBox.style.display = "block";
+        errorBox.textContent = "⚠️ NIM tidak ditemukan/tidak mendaftar.";
+      }
+    }
+  </script>
+</body>
+</html>

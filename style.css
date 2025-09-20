@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+  }
+  
+  /* Layer bintang */
+  .stars, .stars2, .stars3, .tiny-stars {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    border-radius: 50%;
+    animation: animStar 100s linear infinite, twinkle 2s infinite alternate;
+  }
+  
+  .stars {
+    box-shadow: 
+      20px 30px #87CEFA, 60px 120px #BA55D3, 150px 80px #9370DB,
+      200px 300px #87CEFA, 350px 150px #BA55D3, 500px 400px #87CEFA,
+      650px 200px #BA55D3, 800px 500px #9370DB, 1000px 350px #87CEFA,
+      1200px 100px #BA55D3, 1300px 600px #87CEFA, 1500px 250px #9370DB;
+  }
+  
+  .stars2 {
+    box-shadow: 
+      100px 200px #BA55D3, 300px 400px #87CEFA, 600px 250px #9370DB,
+      750px 100px #87CEFA, 950px 450px #BA55D3, 1150px 350px #87CEFA,
+      1400px 600px #BA55D3, 1600px 200px #87CEFA;
+    animation: animStar 160s linear infinite, twinkle 3s infinite alternate;
+  }
+  
+  .stars3 {
+    box-shadow: 
+      50px 600px #BA55D3, 250px 300px #87CEFA, 450px 700px #9370DB,
+      700px 400px #87CEFA, 900px 200px #BA55D3, 1100px 500px #87CEFA,
+      1350px 300px #BA55D3, 1550px 650px #87CEFA;
+    animation: animStar 200s linear infinite, twinkle 4s infinite alternate;
+  }
+  
+  .tiny-stars {
+    width: 1px;
+    height: 1px;
+    box-shadow: 
+      80px 90px #87CEFA, 120px 220px #BA55D3, 300px 180px #87CEFA,
+      400px 320px #9370DB, 550px 270px #87CEFA, 720px 180px #BA55D3,
+      900px 500px #87CEFA, 1100px 150px #BA55D3, 1250px 400px #9370DB,
+      1450px 300px #87CEFA, 1650px 200px #BA55D3, 1750px 500px #87CEFA;
+    animation: animStar 250s linear infinite, twinkle 5s infinite alternate;
+  }
+  
+  @keyframes animStar {
+    from { transform: translateY(0px); }
+    to   { transform: translateY(-800px); }
+  }
+  
+  @keyframes twinkle {
+    from { opacity: 0.2; }
+    to   { opacity: 1; }
+  }
+  
+  /* Shooting stars */
+  .shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(white, transparent);
+    opacity: 0;
+    transform: rotate(45deg);
+    animation: shooting 3s linear infinite;
+  }
+  
+  .shooting-star:nth-child(5) { top: -50px; left: 80%; animation-delay: 2s; }
+  .shooting-star:nth-child(6) { top: -100px; left: 60%; animation-delay: 5s; }
+  .shooting-star:nth-child(7) { top: -150px; left: 40%; animation-delay: 8s; }
+  .shooting-star:nth-child(8) { top: -200px; left: 70%; animation-delay: 12s; }
+  .shooting-star:nth-child(9) { top: -250px; left: 50%; animation-delay: 16s; }
+  
+  @keyframes shooting {
+    0% { transform: translate(0, 0) rotate(45deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translate(-600px, 600px) rotate(45deg); opacity: 0; }
+  }
+  
+  /* Card utama */
+  .card {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 380px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    padding: 25px 20px;
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+  
+  .card img {
+    width: 120px;
+    margin-bottom: 15px;
+  }
+  
+  h1 {
+    margin: 0 0 10px;
+    color: #1E88E5;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  p.subtitle {
+    margin: 0 0 20px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  input {
+    width: 80%;
+    max-width: 250px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  button {
+    width: 80%;
+    max-width: 250px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #1E88E5;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: #1565C0;
+  }
+  
+  .error {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #ffe5e5;
+    color: #b71c1c;
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
