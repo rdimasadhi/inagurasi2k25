@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil Penerimaan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #000;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(123,67,151,0.45), transparent 55%),
+        radial-gradient(circle at 80% 30%, rgba(33,150,243,0.35), transparent 55%),
+        radial-gradient(circle at 50% 80%, rgba(186,85,211,0.35), transparent 55%);
+      overflow: hidden;
+    }
+
+    /* Bintang utama */
+    .stars, .stars2, .stars3, .tiny-stars {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      border-radius: 50%;
+      animation: animStar 100s linear infinite, twinkle 2s infinite alternate;
+    }
+
+    .stars {
+      box-shadow: 
+        20px 30px #87CEFA, 60px 120px #BA55D3, 150px 80px #9370DB,
+        200px 300px #87CEFA, 350px 150px #BA55D3, 500px 400px #87CEFA,
+        650px 200px #BA55D3, 800px 500px #9370DB, 1000px 350px #87CEFA,
+        1200px 100px #BA55D3, 1300px 600px #87CEFA, 1500px 250px #9370DB;
+    }
+
+    .stars2 {
+      box-shadow: 
+        100px 200px #BA55D3, 300px 400px #87CEFA, 600px 250px #9370DB,
+        750px 100px #87CEFA, 950px 450px #BA55D3, 1150px 350px #87CEFA,
+        1400px 600px #BA55D3, 1600px 200px #87CEFA;
+      animation: animStar 160s linear infinite, twinkle 3s infinite alternate;
+    }
+
+    .stars3 {
+      box-shadow: 
+        50px 600px #BA55D3, 250px 300px #87CEFA, 450px 700px #9370DB,
+        700px 400px #87CEFA, 900px 200px #BA55D3, 1100px 500px #87CEFA,
+        1350px 300px #BA55D3, 1550px 650px #87CEFA;
+      animation: animStar 200s linear infinite, twinkle 4s infinite alternate;
+    }
+
+    /* Banyak bintang kecil */
+    .tiny-stars {
+      width: 1px;
+      height: 1px;
+      box-shadow: 
+        80px 90px #87CEFA, 120px 220px #BA55D3, 300px 180px #87CEFA,
+        400px 320px #9370DB, 550px 270px #87CEFA, 720px 180px #BA55D3,
+        900px 500px #87CEFA, 1100px 150px #BA55D3, 1250px 400px #9370DB,
+        1450px 300px #87CEFA, 1650px 200px #BA55D3, 1750px 500px #87CEFA;
+      animation: animStar 250s linear infinite, twinkle 5s infinite alternate;
+    }
+
+    @keyframes animStar {
+      from { transform: translateY(0px); }
+      to   { transform: translateY(-800px); }
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to   { opacity: 1; }
+    }
+
+    /* Shooting stars */
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 100px;
+      background: linear-gradient(white, transparent);
+      opacity: 0;
+      transform: rotate(45deg);
+      animation: shooting 3s linear infinite;
+    }
+
+    .shooting-star:nth-child(5) { top: -50px; left: 80%; animation-delay: 2s; }
+    .shooting-star:nth-child(6) { top: -100px; left: 60%; animation-delay: 5s; }
+    .shooting-star:nth-child(7) { top: -150px; left: 40%; animation-delay: 8s; }
+    .shooting-star:nth-child(8) { top: -200px; left: 70%; animation-delay: 12s; }
+    .shooting-star:nth-child(9) { top: -250px; left: 50%; animation-delay: 16s; }
+
+    @keyframes shooting {
+      0% { transform: translate(0, 0) rotate(45deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translate(-600px, 600px) rotate(45deg); opacity: 0; }
+    }
+
+    /* Card */
+    .card {
+      width: 100%;
+      max-width: 360px; /* pas buat layar android */
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, #1E90FF, #0000CD); /* biru */
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .card-header img {
+      width: 120px;
+      margin-bottom: 12px;
+    }
+
+    .card-header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .card-header p {
+      margin: 10px 0 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .info {
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .info:last-child {
+      border-bottom: none;
+    }
+
+    .info span {
+      display: block;
+      font-size: 13px;
+      color: #1E90FF;
+      margin-bottom: 4px;
+    }
+
+    .info p {
+      margin: 0;
+      font-size: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .note {
+      background: #f5f5f5;
+      padding: 12px;
+      font-size: 13px;
+      text-align: center;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <!-- Layer bintang -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+  <div class="tiny-stars"></div>
+
+  <!-- Shooting stars -->
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="logobg.png" alt="Logo Universitas Dinamika">
+      <h1>INAGURASI 2025</h1>
+      <p>
+        Selamat! 🎉<br>
+        Kamu telah diterima menjadi <b>Panitia INAGURASI 2K25</b>.<br>
+        Terima kasih atas semangat dan partisipasimu.
+      </p>
+    </div>
+    <div class="card-body">
+      <div class="info">
+        <span>Nama</span>
+        <p> Matthew lionell juanno 
+        </p>
+      </div>
+      <div class="info">
+        <span>Program Studi</span>
+        <p> D4 - Produksi Film dan Televisi
+        </p>
+      </div>
+      <div class="info">
+        <span>Posisi</span>
+        <p><b>SIE ACARA</b></p>
+      </div>
+      <div class="info">
+        <span>Nomer Handphone</span>
+        <p> 082342826175
+        </p>
+      </div>
+    </div>
+    <div class="note">
+      Silahkan hubungi <b>Aditya - 085748095096</b><br>
+      
+      dan tunjukkan hasil screenshot layar ini
+    </div>
+  </div>
+</body>
+</html>
