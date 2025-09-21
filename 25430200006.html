@@ -10,6 +10,7 @@
       margin: 0;
       padding: 20px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
@@ -103,11 +104,13 @@
     /* Card */
     .card {
       width: 100%;
-      max-width: 360px; /* pas buat layar android */
+      max-width: 360px;
       background: white;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.6);
       overflow: hidden;
+      position: relative;
+      z-index: 2;
     }
 
     .card-header {
@@ -169,6 +172,52 @@
       text-align: center;
       border-top: 1px solid #ddd;
     }
+
+       /* Search Box */
+       .search-box {
+      margin-top: 20px; /* kasih jarak dari card */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      padding: 10px 14px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 2;
+    }
+
+    .search-box input {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      font-size: 14px;
+      width: 180px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .search-box button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1E90FF, #0000CD);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .search-box button:hover {
+      background: linear-gradient(135deg, #4682B4, #1E90FF);
+      transform: scale(1.05);
+    }
+    
   </style>
 </head>
 <body>
@@ -185,6 +234,7 @@
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
 
+  <!-- Card box -->
   <div class="card">
     <div class="card-header">
       <img src="logobg.png" alt="Logo Universitas Dinamika">
@@ -198,20 +248,23 @@
     <div class="card-body">
       <div class="info">
         <span>Nama</span>
-        <p> Elizabeth Augustine Hariyono
+        <p>elizabeth augustine hariyono
         </p>
       </div>
       <div class="info">
         <span>Program Studi</span>
-        <p> S1 - Akuntansi </p>
+        <p>S1 - Akuntansi
+        </p>
       </div>
       <div class="info">
         <span>Posisi</span>
-        <p><b> SIE TALENT </b></p>
+        <p><b>SIE TALENT</b></p>
       </div>
       <div class="info">
         <span>Nomer Handphone</span>
-        <p> 081336070411
+        <p>081336070411
+
+
         </p>
       </div>
     </div>
@@ -219,6 +272,12 @@
       Silahkan hubungi <b>Raden - 089677982836</b><br>
       dan tunjukkan hasil screenshot layar ini
     </div>
+  </div>
+
+  <!-- Search box -->
+  <div class="search-box">
+    <input type="text" value="25430200006" readonly>
+    <button onclick="alert('anjay congrats ye beth sabeth')">Note!</button>
   </div>
 </body>
 </html>
